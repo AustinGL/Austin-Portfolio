@@ -72,39 +72,21 @@ export default function ModernProjects(): JSX.Element {
         {/* Header */}
         <motion.div 
           className="text-center mb-20"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ margin: "-10%" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          viewport={{ margin: "-10%", once: true }}
         >
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white mb-6 overflow-hidden"
-            initial={{ y: 100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            viewport={{ margin: "-10%" }}
-          >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Featured <span className="text-zinc-300">Projects</span>
-          </motion.h2>
-          <motion.div 
-            className="w-20 h-1 bg-white mx-auto mb-8 rounded-full"
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ margin: "-10%" }}
-          />
+          </h2>
+          <div className="w-20 h-1 bg-white mx-auto mb-8 rounded-full" />
         </motion.div>
 
         {/* Category filters */}
-        <motion.div 
-          className="flex flex-wrap justify-center gap-4 mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          viewport={{ margin: "-10%" }}
-        >
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {categories.map((category, index) => (
-            <motion.button
+            <button
               key={category}
               onClick={() => {
                 setActiveCategory(category);
@@ -134,39 +116,22 @@ export default function ModernProjects(): JSX.Element {
                 }
               }}
               data-category-filter
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-opacity-50 ${
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-opacity-50 hover:scale-105 active:scale-95 ${
                 activeCategory === category
                   ? 'bg-white text-black focus:ring-black'
                   : 'bg-zinc-900/50 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 focus:ring-zinc-500'
               }`}
-              initial={{ opacity: 0, y: 20, scale: 0.8 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ 
-                duration: 0.3, 
-                delay: index * 0.08 + 0.2,
-                ease: "easeOut"
-              }}
-              viewport={{ margin: "-20px" }}
-              whileHover={{ scale: 1.08, y: -2 }}
-              whileTap={{ scale: 0.95 }}
               aria-pressed={activeCategory === category}
               aria-label={`Filter projects by ${category === 'All' ? 'all categories' : category}`}
               title={`Show ${category === 'All' ? 'all projects' : `${category} projects`}`}
             >
               {category}
               {activeCategory === category && (
-                <motion.span 
-                  className="ml-2 text-xs"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  aria-hidden="true"
-                >
-                  ✓
-                </motion.span>
+                <span className="ml-2 text-xs" aria-hidden="true">✓</span>
               )}
-            </motion.button>
+            </button>
           ))}
-        </motion.div>
+        </div>
 
         {/* Projects grid - alternating layout */}
         <div className="space-y-24">
@@ -176,52 +141,14 @@ export default function ModernProjects(): JSX.Element {
               className={`grid lg:grid-cols-2 gap-16 items-center ${
                 index % 2 === 1 ? 'lg:grid-flow-dense' : ''
               }`}
-              initial={{ 
-                opacity: 0, 
-                y: 80,
-                scale: 0.95
-              }}
-              whileInView={{ 
-                opacity: 1, 
-                y: 0,
-                scale: 1
-              }}
-              transition={{ 
-                duration: 0.7, 
-                delay: index * 0.15,
-                ease: "easeOut",
-                type: "spring",
-                stiffness: 100,
-                damping: 15
-              }}
-              viewport={{ margin: "-30px" }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              viewport={{ margin: "-30px", once: true }}
             >
               
               {/* Project Image */}
-              <motion.div 
-                className={`relative group ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
-                initial={{ 
-                  opacity: 0,
-                  x: index % 2 === 1 ? 50 : -50,
-                  rotateY: index % 2 === 1 ? 15 : -15
-                }}
-                whileInView={{ 
-                  opacity: 1,
-                  x: 0,
-                  rotateY: 0
-                }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.15 + 0.2,
-                  ease: "easeOut"
-                }}
-                viewport={{}}
-                whileHover={{ 
-                  scale: 1.05,
-                  rotateY: index % 2 === 1 ? -3 : 3,
-                  transition: { duration: 0.3 }
-                }}
-              >
+              <div className={`relative group ${index % 2 === 1 ? 'lg:col-start-2' : ''} hover:scale-105 transition-transform duration-300 ease-out`}>
                 
                 {/* Featured badge */}
                 {project.featured && (
@@ -252,192 +179,81 @@ export default function ModernProjects(): JSX.Element {
                   </div>
                   
                   {/* Enhanced hover overlay */}
-                  <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center space-x-6">
-                    <motion.a
+                  <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex items-center justify-center space-x-6">
+                    <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-14 h-14 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all shadow-lg"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                      whileTap={{ scale: 0.9 }}
+                      className="w-14 h-14 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 hover:scale-110 active:scale-95 transition-all duration-300 ease-out shadow-lg"
                     >
                       <Github className="w-6 h-6" />
-                    </motion.a>
-                    <motion.a
+                    </a>
+                    <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-14 h-14 bg-white/90 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center text-black hover:bg-white transition-all shadow-lg"
-                      whileHover={{ scale: 1.2, rotate: -5 }}
-                      whileTap={{ scale: 0.9 }}
+                      className="w-14 h-14 bg-white/90 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center text-black hover:bg-white hover:scale-110 active:scale-95 transition-all duration-300 ease-out shadow-lg"
                     >
                       <Play className="w-6 h-6" />
-                    </motion.a>
+                    </a>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Project Content */}
-              <motion.div 
-                className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}
-                initial={{ 
-                  opacity: 0, 
-                  x: index % 2 === 1 ? 60 : -60,
-                  y: 30
-                }}
-                whileInView={{ 
-                  opacity: 1, 
-                  x: 0,
-                  y: 0
-                }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.15 + 0.3,
-                  ease: "easeOut"
-                }}
-                viewport={{}}
-              >
+              <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
                 
                 {/* Category tag */}
-                <motion.div 
-                  className="inline-flex items-center space-x-2 text-sm font-medium text-zinc-400"
-                  initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ 
-                    duration: 0.4, 
-                    delay: index * 0.15 + 0.4,
-                    ease: "easeOut"
-                  }}
-                  viewport={{}}
-                >
-                  <motion.div
-                    initial={{ rotate: 0 }}
-                    whileInView={{ rotate: 360 }}
-                    transition={{ 
-                      duration: 0.8, 
-                      delay: index * 0.2 + 0.6,
-                      ease: "easeOut"
-                    }}
-                  >
-                    <Zap className="w-4 h-4 text-zinc-500" />
-                  </motion.div>
+                <div className="inline-flex items-center space-x-2 text-sm font-medium text-zinc-400">
+                  <Zap className="w-4 h-4 text-zinc-500" />
                   <span>{project.category}</span>
-                </motion.div>
+                </div>
 
                 {/* Title */}
-                <motion.h3 
-                  className="text-3xl md:text-4xl font-bold text-white transition-all duration-300 overflow-hidden"
-                  initial={{ y: 50, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: index * 0.15 + 0.5,
-                    ease: "easeOut"
-                  }}
-                  viewport={{}}
-                >
+                <h3 className="text-3xl md:text-4xl font-bold text-white">
                   {project.title}
-                </motion.h3>
+                </h3>
 
                 {/* Description */}
-                <motion.p 
-                  className="text-zinc-300 leading-relaxed text-lg"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: index * 0.15 + 0.6,
-                    ease: "easeOut"
-                  }}
-                  viewport={{}}
-                >
+                <p className="text-zinc-300 leading-relaxed text-lg">
                   {project.description}
-                </motion.p>
+                </p>
                 
                 {/* Tech stack */}
-                <motion.div 
-                  className="flex flex-wrap gap-3"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: index * 0.15 + 0.7,
-                    ease: "easeOut"
-                  }}
-                  viewport={{}}
-                >
+                <div className="flex flex-wrap gap-3">
                   {project.tech.map((tech, techIndex) => (
-                    <motion.span
+                    <span
                       key={tech}
-                      className="px-4 py-2 bg-zinc-900/60 border border-zinc-700 text-zinc-300 rounded-lg text-sm font-medium hover:border-zinc-600 transition-colors"
-                      initial={{ opacity: 0, scale: 0.6, y: 20 }}
-                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{ 
-                        duration: 0.4, 
-                        delay: index * 0.2 + 0.9 + techIndex * 0.08,
-                        ease: "backOut"
-                      }}
-                      viewport={{}}
-                      whileHover={{ scale: 1.1, y: -2 }}
+                      className="px-4 py-2 bg-zinc-900/60 border border-zinc-700 text-zinc-300 rounded-lg text-sm font-medium hover:border-zinc-600 hover:scale-105 active:scale-95 transition-all duration-300 ease-out"
                     >
                       {tech}
-                    </motion.span>
+                    </span>
                   ))}
-                </motion.div>
+                </div>
                 
                 {/* Action buttons */}
-                <motion.div 
-                  className="flex flex-wrap gap-4 pt-4"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: index * 0.15 + 0.8,
-                    ease: "easeOut"
-                  }}
-                  viewport={{}}
-                >
-                  <motion.a
+                <div className="flex flex-wrap gap-4 pt-4">
+                  <a
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-zinc-200 transition-all duration-300"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ 
-                      duration: 0.5, 
-                      delay: index * 0.2 + 1.1,
-                      ease: "easeOut"
-                    }}
-                    viewport={{}}
-                    whileHover={{ y: -5, scale: 1.05, x: 3 }}
-                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center space-x-2 px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-zinc-200 hover:scale-105 active:scale-95 transition-all duration-300 ease-out"
                   >
                     <Play className="w-5 h-5" />
                     <span>Live Demo</span>
-                  </motion.a>
+                  </a>
                   
-                  <motion.a
+                  <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 px-6 py-3 border border-zinc-700 text-zinc-300 font-semibold rounded-lg hover:border-zinc-600 hover:text-white transition-all duration-300"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ 
-                      duration: 0.5, 
-                      delay: index * 0.2 + 1.2,
-                      ease: "easeOut"
-                    }}
-                    viewport={{}}
-                    whileHover={{ y: -5, scale: 1.05, x: -3 }}
-                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center space-x-2 px-6 py-3 border border-zinc-700 text-zinc-300 font-semibold rounded-lg hover:border-zinc-600 hover:text-white hover:scale-105 active:scale-95 transition-all duration-300 ease-out"
                   >
                     <Github className="w-5 h-5" />
                     <span>View Code</span>
-                  </motion.a>
-                </motion.div>
-              </motion.div>
+                  </a>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

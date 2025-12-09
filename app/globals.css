@@ -24,6 +24,10 @@
     font-feature-settings: 'kern' 1;
     contain: layout style paint;
     will-change: scroll-position;
+    /* Mobile performance optimizations */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -246,6 +250,48 @@
 ::selection {
   background-color: rgba(220, 38, 38, 0.3);
   color: #ffffff;
+}
+
+/* Smooth hover animations for all interactive elements */
+button, a, [role="button"] {
+  will-change: transform, background-color, color, border-color, box-shadow;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Reduce motion for better mobile performance */
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  /* Disable complex transforms on mobile */
+  .complex-animation {
+    transform: none !important;
+  }
+  
+  /* Optimize blur effects */
+  .blur-3xl {
+    filter: blur(20px) !important;
+  }
+  
+  /* Hardware acceleration for smooth scrolling */
+  body {
+    -webkit-overflow-scrolling: touch;
+    transform: translateZ(0);
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Smooth transitions for all interactive elements */
