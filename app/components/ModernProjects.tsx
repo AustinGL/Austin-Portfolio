@@ -44,7 +44,7 @@ export default function ModernProjects(): JSX.Element {
 
         {/* Simple Section Header */}
         <motion.div
-          className="max-w-3xl mx-auto text-center mb-20"
+          className="max-w-3xl mx-auto text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -67,6 +67,7 @@ export default function ModernProjects(): JSX.Element {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ margin: "-100px" }}
+              aria-label={`View ${project.title} project - ${project.category}`}
             >
               {/* Project Image */}
               <div className="aspect-[4/3] bg-gray-100 mb-6 overflow-hidden hover-zoom">
@@ -80,7 +81,7 @@ export default function ModernProjects(): JSX.Element {
                 <p className="text-xs text-accent uppercase tracking-widest font-sans font-medium">
                   {project.category}
                 </p>
-                <h3 className="font-serif text-2xl md:text-3xl font-bold group-hover:text-accent transition-colors">
+                <h3 className="font-serif text-xl md:text-2xl font-bold group-hover:text-accent transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-gray-600 font-sans text-sm leading-relaxed">

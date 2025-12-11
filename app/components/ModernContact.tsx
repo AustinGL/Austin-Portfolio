@@ -10,7 +10,7 @@ export default function ModernContact(): JSX.Element {
 
         {/* Centered Heading */}
         <motion.div
-          className="max-w-3xl mx-auto text-center mb-20"
+          className="max-w-3xl mx-auto text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -18,7 +18,7 @@ export default function ModernContact(): JSX.Element {
         >
           <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6">Get In Touch</h2>
           <div className="divider-center" />
-          <p className="text-gray-600 mt-8 text-lg font-sans">
+          <p className="text-base text-gray-600 mt-6 font-light">
             Have a project in mind? Let's collaborate and create something beautiful.
           </p>
         </motion.div>
@@ -33,7 +33,7 @@ export default function ModernContact(): JSX.Element {
         >
           <a
             href="mailto:liwantoaustin@gmail.com"
-            className="inline-block font-sans text-2xl md:text-3xl hover-underline hover-accent"
+            className="text-xl md:text-2xl font-serif hover-underline inline-block"
           >
             liwantoaustin@gmail.com
           </a>
@@ -52,7 +52,7 @@ export default function ModernContact(): JSX.Element {
             target="_blank"
             rel="noopener noreferrer"
             className="hover-accent transition-all duration-500"
-            aria-label="GitHub"
+            aria-label="Visit Austin's GitHub profile"
           >
             <Github className="w-6 h-6" />
           </a>
@@ -62,7 +62,7 @@ export default function ModernContact(): JSX.Element {
             target="_blank"
             rel="noopener noreferrer"
             className="hover-accent transition-all duration-500"
-            aria-label="LinkedIn"
+            aria-label="Connect with Austin on LinkedIn"
           >
             <Linkedin className="w-6 h-6" />
           </a>
@@ -70,7 +70,7 @@ export default function ModernContact(): JSX.Element {
           <a
             href="mailto:liwantoaustin@gmail.com"
             className="hover-accent transition-all duration-500"
-            aria-label="Email"
+            aria-label="Send email to liwantoaustin@gmail.com"
           >
             <Mail className="w-6 h-6" />
           </a>
