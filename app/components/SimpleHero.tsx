@@ -82,7 +82,7 @@ export default function SimpleHero(): JSX.Element {
       {/* Scroll Indicator - Fixed at Bottom */}
       <motion.button
         onClick={scrollToNext}
-        className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 hover:text-accent transition-all duration-500 cursor-pointer"
+        className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-dark-500 hover:text-accent transition-all duration-500 cursor-pointer"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.8 }}

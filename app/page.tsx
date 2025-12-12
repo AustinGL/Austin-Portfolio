@@ -1,4 +1,4 @@
-  "use client";
+"use client";
 import React from "react";
 import ModernNavbar from "./components/ModernNavbar";
 import SimpleHero from "./components/SimpleHero";
@@ -8,7 +8,7 @@ import ModernContact from "./components/ModernContact";
 
 export default function Page() {
   return (
-    <div className="relative bg-black">
+    <div className="relative bg-white">
       {/* Navigation */}
       <ModernNavbar />
 

@@ -78,22 +78,15 @@ export default function ModernContact(): JSX.Element {
 
         {/* Simple Footer */}
         <motion.div
-          className="text-center pt-12 border-t border-gray-200"
+          className="max-w-3xl mx-auto text-center pt-8 pb-8 border-t border-gray-200"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6 }}
           viewport={{ margin: "-50px" }}
         >
-          <p className="text-sm text-gray-500 font-sans mb-4">
-            © {new Date().getFullYear()} Austin Gilbert Liwanto
+          <p className="text-sm text-gray-500 font-light">
+            More projects coming soon
           </p>
-
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-xs text-gray-400 hover:text-accent transition-all duration-500 uppercase tracking-widest font-sans"
-          >
-            Back to Top
-          </button>
         </motion.div>
       </div>
     </section>

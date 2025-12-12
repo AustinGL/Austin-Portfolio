@@ -1,94 +1,137 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
     id: 1,
     title: "UMN Mentoring",
     category: "Web Development",
-    description: "Modern mentoring platform with advanced features for student-mentor matching.",
+    description: "A web platform that shows the mentoring program’s event schedule and helps manage participant groups. It includes easy search and filter tools so mentors and admins can quickly find and organize participant information.",
     link: "https://mentoring.umn.ac.id/#/",
-    image: "/api/placeholder/800/600"
+    github: "#",
+    image: "/projects/MentoringUMN.avif"
   },
   {
     id: 2,
-    title: "AI Task Manager",
-    category: "Full-Stack",
-    description: "Intelligent project management tool with AI-powered task prioritization.",
+    title: "Melali",
+    category: "Web Development",
+    description: "A web-based platform designed to showcase Bali’s top tourism destinations, featuring detailed information on popular attractions, recommended hotels, and travel experiences. The system helps visitors easily explore, discover, and plan their trip with user-friendly navigation and helpful suggestions.",
     link: "#",
-    image: "/api/placeholder/800/600"
+    github: "#",
+    image: "/projects/Melali.avif"
   },
   {
     id: 3,
-    title: "Real-Time Analytics",
-    category: "Data Visualization",
-    description: "Comprehensive analytics dashboard with real-time data visualization.",
+    title: "Evenlix",
+    category: "Web Development",
+    description: "A simple event management website with separate client and admin interfaces. Clients can browse events, buy tickets, and view their registration history in their profile. Administrators can add, edit, and delete events, as well as track user activity and registration data to manage the platform.",
     link: "#",
-    image: "/api/placeholder/800/600"
+    github: "#",
+    image: "/projects/Evenlix.avif"
   },
   {
     id: 4,
-    title: "Crypto Trading Bot",
-    category: "FinTech",
-    description: "Automated cryptocurrency trading system with advanced algorithms.",
+    title: "Co Waste",
+    category: "UI/UX Design",
+    description: "A mobile app that motivates users to recycle by turning their food waste into reward points. Users can redeem these points for different products or discounts, helping promote sustainable habits and reduce household waste.",
     link: "#",
-    image: "/api/placeholder/800/600"
+    github: "#",
+    image: "/projects/Co-Waste.avif"
   }
 ];
 
 export default function ModernProjects(): JSX.Element {
   return (
-    <section className="section-spacing bg-white">
+    <section id="projects" className="section-spacing bg-white">
       <div className="container-editorial">
 
         {/* Simple Section Header */}
         <motion.div
-          className="max-w-3xl mx-auto text-center mb-12"
+          className="max-w-3xl mx-auto text-center mb-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ margin: "-50px" }}
         >
-          <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6">Selected Work</h2>
+          <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6">Selected Projects</h2>
           <div className="divider-center" />
         </motion.div>
 
-        {/* Editorial Grid - 2 Columns on Desktop */}
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+        {/* Full-Width Alternating Layout */}
+        <div className="space-y-24 lg:space-y-32">
           {projects.map((project, index) => (
-            <motion.a
+            <motion.div
               key={project.id}
-              href={project.link}
-              target={project.link.startsWith('http') ? '_blank' : '_self'}
-              rel="noopener noreferrer"
-              className="group block"
-              initial={{ opacity: 0, y: 40 }}
+              className="group"
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ margin: "-100px" }}
-              aria-label={`View ${project.title} project - ${project.category}`}
+              transition={{ duration: 0.7, delay: index * 0.15 }}
+              viewport={{ margin: "-100px", once: true }}
             >
-              {/* Project Image */}
-              <div className="aspect-[4/3] bg-gray-100 mb-6 overflow-hidden hover-zoom">
-                <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <span className="text-gray-400 font-sans text-sm">Project Image</span>
-                </div>
-              </div>
+              {/* Alternating Grid Layout */}
+              <div className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                }`}>
 
-              {/* Project Info - Minimal Text Overlay */}
-              <div className="space-y-2">
-                <p className="text-xs text-accent uppercase tracking-widest font-sans font-medium">
-                  {project.category}
-                </p>
-                <h3 className="font-serif text-xl md:text-2xl font-bold group-hover:text-accent transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 font-sans text-sm leading-relaxed">
-                  {project.description}
-                </p>
+                {/* Project Image */}
+                <div className={`relative ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <div className="aspect-[16/10] bg-gray-900 overflow-hidden relative border border-gray-100">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} - ${project.category} project screenshot`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                      priority={index < 2}
+                    />
+                  </div>
+                </div>
+
+                {/* Project Info */}
+                <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <div className="space-y-4">
+                    <p className="text-xs text-accent uppercase tracking-[0.25em] font-sans font-medium">
+                      {project.category}
+                    </p>
+                    <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+                      {project.title}
+                    </h3>
+                    <div className="divider" />
+                    <p className="text-gray-600 font-sans text-base md:text-lg leading-relaxed max-w-xl">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Link Buttons on Desktop */}
+                  <div className="hidden md:flex items-center gap-6 pt-2">
+                    <a
+                      href={project.link}
+                      target={project.link.startsWith('http') ? '_blank' : '_self'}
+                      rel="noopener noreferrer"
+                      className="group/link flex items-center gap-2 font-sans text-sm font-medium hover-accent transition-colors"
+                      aria-label={`Visit ${project.title} website`}
+                    >
+                      <span>View Project</span>
+                      <ExternalLink className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                    </a>
+                    <span className="text-gray-300">|</span>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/link flex items-center gap-2 font-sans text-sm font-medium hover-accent transition-colors"
+                      aria-label={`View ${project.title} on GitHub`}
+                    >
+                      <span>View Code</span>
+                      <Github className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
