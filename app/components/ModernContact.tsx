@@ -54,7 +54,7 @@ export default function ModernContact(): JSX.Element {
           </div>
         </motion.div>
 
-        {/* Social Icons - Minimal */}
+        {/* Social Icons*/}
         <motion.div
           className="flex justify-center gap-8 mb-20"
           initial={{ opacity: 0, y: 20 }}

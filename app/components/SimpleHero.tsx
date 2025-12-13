@@ -50,17 +50,15 @@ export default function SimpleHero(): JSX.Element {
               <span className="block mt-1 md:mt-2">Liwanto</span>
             </motion.h1>
           </div>
-
-          {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-24"
+            className="flex flex-col px-6 sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-24"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
             viewport={{ margin: "-50px" }}
           >
             <a
-              href="/resume.pdf"
+              href="/AustinGilbertLiwanto_Resume.pdf"
               download="Austin_Gilbert_Liwanto_Resume.pdf"
               className="btn-minimal inline-flex items-center gap-2 w-full sm:w-auto justify-center"
               aria-label="Download Austin Gilbert Liwanto's resume as PDF file"
@@ -78,19 +76,6 @@ export default function SimpleHero(): JSX.Element {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator - Fixed at Bottom */}
-      <motion.button
-        onClick={scrollToNext}
-        className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-dark-500 hover:text-accent transition-all duration-500 cursor-pointer"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-        viewport={{ margin: "-50px" }}
-        aria-label="Scroll down to next section"
-      >
-        <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
-      </motion.button>
     </section>
   );
 }

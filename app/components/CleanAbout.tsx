@@ -27,12 +27,12 @@ export default function CleanAbout(): JSX.Element {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ margin: "-50px" }}
         >
-          <p className="text-base leading-relaxed text-gray-700 text-justify">
-            I started my tech journey building websites, but these days I'm obsessed with figuring out how everything works and learning new things.
+          <p className="text-base leading-relaxed text-gray-700 text-center pb-8">
+            Heloo im a undergradaute student at Multimedia Nusantara University based in Indonesia. I started my tech journey building websites, but these days I'm obsessed with figuring out how everything works and learning new things.
           </p>
 
           {/* Simple Skills List */}
-          <div className="pt-8 border-t border-gray-200 mt-12">
+          <div className="pt-12 border-t border-gray-200 mt-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               {['JavaScript', 'TypeScript', 'Python', 'React.js', 'Next.js', 'Laravel', 'Tailwind CSS', 'Figma'].map((skill) => (
                 <span key={skill} className="text-sm text-gray-600 font-sans tracking-wide">

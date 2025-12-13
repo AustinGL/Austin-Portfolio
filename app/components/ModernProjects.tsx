@@ -19,7 +19,7 @@ const projects = [
     title: "Melali",
     category: "Web Development",
     description: "A web-based platform designed to showcase Bali’s top tourism destinations, featuring detailed information on popular attractions, recommended hotels, and travel experiences. The system helps visitors easily explore, discover, and plan their trip with user-friendly navigation and helpful suggestions.",
-    link: "#",
+    link: "https://melali-in-bali.vercel.app/",
     github: "#",
     image: "/projects/Melali.avif"
   },
@@ -28,7 +28,7 @@ const projects = [
     title: "Evenlix",
     category: "Web Development",
     description: "A simple event management website with separate client and admin interfaces. Clients can browse events, buy tickets, and view their registration history in their profile. Administrators can add, edit, and delete events, as well as track user activity and registration data to manage the platform.",
-    link: "#",
+    link: "https://moreno.xo.je/?i=1",
     github: "#",
     image: "/projects/Evenlix.avif"
   },
@@ -37,7 +37,7 @@ const projects = [
     title: "Co Waste",
     category: "UI/UX Design",
     description: "A mobile app that motivates users to recycle by turning their food waste into reward points. Users can redeem these points for different products or discounts, helping promote sustainable habits and reduce household waste.",
-    link: "#",
+    link: "https://www.figma.com/proto/rgtHJHgombG6W97CAwf0XL/Co-Waste?node-id=611-2985&t=GLFWyK4rvwvZviTu-6&starting-point-node-id=256%3A3862",
     github: "#",
     image: "/projects/Co-Waste.avif"
   }
