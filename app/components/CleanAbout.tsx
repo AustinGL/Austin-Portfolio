@@ -9,7 +9,7 @@ export default function CleanAbout(): JSX.Element {
 
         {/* Simple Section Header */}
         <motion.div
-          className="max-w-3xl mx-auto text-center mb-12"
+          className="max-w-3xl mx-auto text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

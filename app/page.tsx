@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import ModernNavbar from "./components/ModernNavbar";
 import SimpleHero from "./components/SimpleHero";
 import CleanAbout from "./components/CleanAbout";
 import ModernProjects from "./components/ModernProjects";
@@ -9,8 +8,6 @@ import ModernContact from "./components/ModernContact";
 export default function Page() {
   return (
     <div className="relative bg-white">
-      {/* Navigation */}
-      <ModernNavbar />
 
       {/* Main Content */}
       <main>

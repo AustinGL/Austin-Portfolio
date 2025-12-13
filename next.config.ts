@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Image optimization with security
+  // Image optimization
   images: {
     remotePatterns: [
       {
@@ -61,7 +61,7 @@ const nextConfig: NextConfig = {
   // Production optimizations
   compress: true,
 
-  // React strict mode for better development
+  // React strict mode for development
   reactStrictMode: true,
 };
 

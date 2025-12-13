@@ -1,16 +1,29 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Copy, Check } from "lucide-react";
 
 export default function ModernContact(): JSX.Element {
+  const [copied, setCopied] = useState(false);
+  const email = "liwantoaustin@gmail.com";
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
   return (
     <section className="section-spacing bg-white">
       <div className="container-editorial">
 
         {/* Centered Heading */}
         <motion.div
-          className="max-w-3xl mx-auto text-center mb-12"
+          className="max-w-3xl mx-auto text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -31,12 +44,14 @@ export default function ModernContact(): JSX.Element {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ margin: "-50px" }}
         >
-          <a
-            href="mailto:liwantoaustin@gmail.com"
-            className="text-xl md:text-2xl font-serif hover-underline inline-block"
-          >
-            liwantoaustin@gmail.com
-          </a>
+          <div className="flex items-center justify-center gap-3">
+            <a
+              href={`mailto:${email}`}
+              className="text-xl md:text-2xl font-serif hover-underline inline-block"
+            >
+              {email}
+            </a>
+          </div>
         </motion.div>
 
         {/* Social Icons - Minimal */}
@@ -84,8 +99,11 @@ export default function ModernContact(): JSX.Element {
           transition={{ duration: 0.6 }}
           viewport={{ margin: "-50px" }}
         >
+          <p className="text-sm text-gray-500 font-light mb-6">
+            More projects coming soon :D
+          </p>
           <p className="text-sm text-gray-500 font-light">
-            More projects coming soon
+            © 2025 Austin Gilbert Liwanto. All rights reserved.
           </p>
         </motion.div>
       </div>

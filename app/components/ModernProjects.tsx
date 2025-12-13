@@ -104,29 +104,35 @@ export default function ModernProjects(): JSX.Element {
                     </p>
                   </div>
 
-                  {/* Link Buttons on Desktop */}
-                  <div className="hidden md:flex items-center gap-6 pt-2">
-                    <a
-                      href={project.link}
-                      target={project.link.startsWith('http') ? '_blank' : '_self'}
-                      rel="noopener noreferrer"
-                      className="group/link flex items-center gap-2 font-sans text-sm font-medium hover-accent transition-colors"
-                      aria-label={`Visit ${project.title} website`}
-                    >
-                      <span>View Project</span>
-                      <ExternalLink className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
-                    </a>
-                    <span className="text-gray-300">|</span>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/link flex items-center gap-2 font-sans text-sm font-medium hover-accent transition-colors"
-                      aria-label={`View ${project.title} on GitHub`}
-                    >
-                      <span>View Code</span>
-                      <Github className="w-4 h-4" />
-                    </a>
+                  {/* Link Buttons - Visible on all screen sizes */}
+                  <div className="flex items-center gap-4 md:gap-6 pt-4 md:pt-2">
+                    {project.link !== "#" && (
+                      <a
+                        href={project.link}
+                        target={project.link.startsWith('http') ? '_blank' : '_self'}
+                        rel="noopener noreferrer"
+                        className="group/link flex items-center gap-2 font-sans text-sm font-medium hover-accent transition-colors"
+                        aria-label={`Visit ${project.title} website`}
+                      >
+                        <span>View Project</span>
+                        <ExternalLink className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                      </a>
+                    )}
+                    {project.link !== "#" && project.github !== "#" && (
+                      <span className="text-gray-300">|</span>
+                    )}
+                    {project.github !== "#" && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/link flex items-center gap-2 font-sans text-sm font-medium hover-accent transition-colors"
+                        aria-label={`View ${project.title} on GitHub`}
+                      >
+                        <span>View Code</span>
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
 

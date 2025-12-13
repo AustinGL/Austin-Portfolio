@@ -21,19 +21,31 @@ export const metadata: Metadata = {
   keywords: ['Austin Gilbert Liwanto', 'Full-Stack Developer', 'UI/UX Designer', 'Web Developer', 'React', 'Next.js', 'TypeScript', 'Portfolio'],
   authors: [{ name: 'Austin Gilbert Liwanto' }],
   creator: 'Austin Gilbert Liwanto',
+  metadataBase: new URL('https://austin-portfolio-eosin.vercel.app/'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://yourwebsite.com',
+    url: '/',
     title: 'Austin Gilbert Liwanto | Full-Stack Developer & UI/UX Designer',
     description: 'Full-stack developer and UI/UX designer specializing in modern web applications, clean code, and exceptional user experiences.',
     siteName: 'Austin Gilbert Liwanto Portfolio',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Austin Gilbert Liwanto - Full-Stack Developer Portfolio',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Austin Gilbert Liwanto | Full-Stack Developer & UI/UX Designer',
     description: 'Full-stack developer and UI/UX designer creating exceptional digital experiences.',
-    creator: '@yourtwitterhandle',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -65,7 +77,7 @@ export default function RootLayout({
               '@type': 'Person',
               name: 'Austin Gilbert Liwanto',
               jobTitle: 'Full-Stack Developer & UI/UX Designer',
-              url: 'https://yourwebsite.com',
+              url: 'https://austin-portfolio-eosin.vercel.app/',
               sameAs: [
                 'https://github.com/AustinGL',
                 'https://www.linkedin.com/in/austin-gilbert-liwanto/',

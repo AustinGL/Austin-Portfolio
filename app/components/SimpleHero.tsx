@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export default function SimpleHero(): JSX.Element {
   const scrollToNext = () => {
@@ -40,7 +40,7 @@ export default function SimpleHero(): JSX.Element {
 
             {/* Name */}
             <motion.h1
-              className="font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.1]"
+              className="font-serif text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.1]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -89,7 +89,6 @@ export default function SimpleHero(): JSX.Element {
         viewport={{ margin: "-50px" }}
         aria-label="Scroll down to next section"
       >
-        <span className="text-xs tracking-widest uppercase font-sans">Scroll</span>
         <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
       </motion.button>
     </section>
