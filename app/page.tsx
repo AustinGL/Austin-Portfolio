@@ -1,31 +1,18 @@
 "use client";
 import React from "react";
-import SimpleHero from "./components/SimpleHero";
-import CleanAbout from "./components/CleanAbout";
-import ModernProjects from "./components/ModernProjects";
-import ModernContact from "./components/ModernContact";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 export default function Page() {
   return (
-    <div className="relative bg-white">
-
-      {/* Main Content */}
+    <div className="bg-white">
       <main>
-        <section id="hero" className="min-h-screen">
-          <SimpleHero />
-        </section>
-
-        <section id="about" className="min-h-screen">
-          <CleanAbout />
-        </section>
-
-        <section id="projects" className="min-h-screen">
-          <ModernProjects />
-        </section>
-
-        <section id="contact" className="min-h-screen">
-          <ModernContact />
-        </section>
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
       </main>
     </div>
   );

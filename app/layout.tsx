@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from 'next/font/google';
-import ModernNavbar from "./components/ModernNavbar";
+import { Space_Grotesk, Inter } from 'next/font/google';
+import Navbar from "./components/Navbar";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-serif',
-  weight: ['400', '700'],
+  variable: '--font-masthead',
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600'],
 });
 
 export const metadata: Metadata = {
-  title: 'Austin Gilbert Liwanto | Full-Stack Developer & UI/UX Designer',
-  description: 'Full-stack developer and UI/UX designer specializing in modern web applications, clean code, and exceptional user experiences. View my portfolio and get in touch.',
+  title: 'Austin Gilbert Liwanto | Portfolio 2026',
+  description: 'Full-stack developer and UI/UX designer. A high-impact portfolio showcasing modern web applications and exceptional user experiences.',
   keywords: ['Austin Gilbert Liwanto', 'Full-Stack Developer', 'UI/UX Designer', 'Web Developer', 'React', 'Next.js', 'TypeScript', 'Portfolio'],
   authors: [{ name: 'Austin Gilbert Liwanto' }],
   creator: 'Austin Gilbert Liwanto',
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    title: 'Austin Gilbert Liwanto | Full-Stack Developer & UI/UX Designer',
-    description: 'Full-stack developer and UI/UX designer specializing in modern web applications, clean code, and exceptional user experiences.',
+    title: 'Austin Gilbert Liwanto | Portfolio 2026',
+    description: 'Full-stack developer and UI/UX designer creating exceptional digital experiences.',
     siteName: 'Austin Gilbert Liwanto Portfolio',
     images: [
       {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Austin Gilbert Liwanto | Full-Stack Developer & UI/UX Designer',
+    title: 'Austin Gilbert Liwanto | Portfolio 2026',
     description: 'Full-stack developer and UI/UX designer creating exceptional digital experiences.',
     images: ['/og-image.png'],
   },
@@ -87,8 +87,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${playfair.variable} ${inter.variable} antialiased`}>
-        <ModernNavbar />
+      <body className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}>
+        <Navbar />
         <main id="main-content">
           {children}
         </main>

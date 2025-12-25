@@ -1,5 +1,10 @@
-/* Import Sophisticated Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+/* ========================================
+   HIGH-FASHION VIOLET MAGAZINE
+   Design System - "Only purple ink delivered"
+   ======================================== */
+
+/* Import Editorial Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,34 +12,34 @@
 
 @layer base {
 
-  /* Minimalist Editorial Design System */
+  /* Violet Magazine Palette */
   :root {
-    /* Monochromatic Color Palette */
-    --color-white: #FAFAFA;
-    --color-black: #1a1a1a;
-    --color-gray-light: #E5E5E5;
-    --color-gray-mid: #9CA3AF;
-    --color-gray-dark: #374151;
+    /* Purple Family - The Only Colors */
+    --violet-deep: #5B2C86;
+    --violet-mid: #8B5FBF;
+    --violet-lavender: #C7A2FF;
+    --violet-subtle: rgba(91, 44, 134, 0.15);
+    --violet-overlay: rgba(139, 95, 191, 0.15);
 
-    /* Single Accent - Muted Gold/Brass */
-    --color-accent: #B8956A;
-    --color-accent-hover: #A17D52;
+    /* Neutrals for Typography */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-gray: #666666;
 
     /* Typography */
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, sans-serif;
 
-    /* Generous Spacing for Negative Space */
-    --spacing-section: 120px;
-    --spacing-xl: 80px;
-    --spacing-lg: 48px;
-    --spacing-md: 32px;
-    --spacing-sm: 16px;
-    --spacing-xs: 8px;
+    /* Editorial Spacing - More Generous White Space */
+    --space-xs: 12px;
+    --space-sm: 24px;
+    --space-md: 48px;
+    --space-lg: 80px;
+    --space-xl: 140px;
+    --space-2xl: 220px;
 
     /* Transitions */
-    --transition-base: 0.3s ease;
-    --transition-slow: 0.6s ease;
+    --ease-elegant: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Base Styles */
@@ -46,86 +51,73 @@
     font-family: var(--font-sans);
     background-color: var(--color-white);
     color: var(--color-black);
+    font-size: 16px;
     line-height: 1.8;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 16px;
   }
 
-  /* Typography Hierarchy */
+  /* Headline Typography - Playfair Display */
   h1,
   h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h3 {
     font-family: var(--font-serif);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    color: var(--color-black);
+    font-weight: 500;
+    color: var(--violet-deep);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
 
   h1 {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 700;
+    font-size: clamp(48px, 10vw, 140px);
   }
 
   h2 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(36px, 6vw, 72px);
   }
 
   h3 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(24px, 3vw, 36px);
   }
 
+  /* Body Copy - Inter, black only */
   p {
-    color: var(--color-gray-dark);
-    line-height: 1.8;
-    font-size: 1.125rem;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--color-black);
+    max-width: 38ch;
+    /* Narrow column for elegance */
+    font-weight: 300;
   }
 
-  /* Links */
+  /* Links - Invisible until hover */
   a {
-    color: var(--color-black);
+    color: inherit;
     text-decoration: none;
-    transition: color var(--transition-base);
+    position: relative;
+    transition: color 0.4s var(--ease-elegant);
   }
 
   a:hover {
-    color: var(--color-accent);
+    color: var(--violet-deep);
   }
 
   /* Focus States */
   *:focus-visible {
-    outline: 1px solid var(--color-accent);
+    outline: 1px solid var(--violet-lavender);
     outline-offset: 4px;
   }
 }
 
-/* Custom Scrollbar - Minimal */
-::-webkit-scrollbar {
-  width: 6px;
-}
+/* ========================================
+   EDITORIAL UTILITY CLASSES
+   ======================================== */
 
-::-webkit-scrollbar-track {
-  background: var(--color-white);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-gray-mid);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
-}
-
-/* Utilities */
 @layer utilities {
 
-  /* Typography Utilities */
+  /* Typography Classes */
   .font-serif {
     font-family: var(--font-serif);
   }
@@ -134,164 +126,289 @@
     font-family: var(--font-sans);
   }
 
-  /* Accent Color */
-  .text-accent {
-    color: var(--color-accent);
+  /* Violet Colors */
+  .text-violet {
+    color: var(--violet-deep);
   }
 
-  .border-accent {
-    border-color: var(--color-accent);
+  .text-violet-mid {
+    color: var(--violet-mid);
   }
 
-  /* Hover Effects */
-  .hover-accent {
-    transition: color 0.4s ease;
+  .text-violet-lavender {
+    color: var(--violet-lavender);
   }
 
-  .hover-accent:hover {
-    color: var(--color-accent);
+  .bg-violet {
+    background-color: var(--violet-deep);
   }
 
-  .hover-underline {
+  .bg-violet-mid {
+    background-color: var(--violet-mid);
+  }
+
+  /* Violet Gradient Overlay - 15% opacity for images */
+  .violet-overlay {
     position: relative;
   }
 
-  .hover-underline::after {
+  .violet-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+        rgba(91, 44, 134, 0.2) 0%,
+        rgba(139, 95, 191, 0.15) 50%,
+        rgba(199, 162, 255, 0.1) 100%);
+    pointer-events: none;
+  }
+
+  /* Foil-Stamped Text Effect */
+  .foil-violet {
+    background: linear-gradient(135deg,
+        var(--violet-deep) 0%,
+        var(--violet-lavender) 50%,
+        var(--violet-deep) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: foilShimmer 8s ease-in-out infinite;
+  }
+
+  @keyframes foilShimmer {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Pull Quote - Oversized quotation marks */
+  .pull-quote {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 4vw, 48px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--violet-mid);
+    position: relative;
+    padding-left: 60px;
+    line-height: 1.4;
+  }
+
+  .pull-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -20px;
+    font-size: 120px;
+    color: var(--violet-lavender);
+    font-family: var(--font-serif);
+    line-height: 1;
+    opacity: 0.6;
+  }
+
+  /* Vertical Caption Style */
+  .vertical-caption {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gray);
+  }
+
+  /* Invisible Navigation Link - Shows underline on hover */
+  .nav-link {
+    position: relative;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-black);
+    transition: color 0.3s var(--ease-elegant);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--violet-lavender);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s var(--ease-elegant);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .nav-link:hover {
+    color: var(--violet-deep);
+  }
+
+  /* Full Bleed Image Container */
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  /* Generous Whitespace Sections */
+  .section-breathing {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  /* Magazine Spread Layout */
+  .spread-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+  }
+
+  @media (min-width: 1024px) {
+    .spread-container {
+      grid-template-columns: 60% 40%;
+    }
+  }
+
+  /* Caption Alignment - Bottom Right */
+  .caption-br {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  /* Minimal Button - Text only with underline on hover */
+  .btn-text {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-black);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .btn-text::after {
     content: '';
     position: absolute;
     bottom: -2px;
     left: 0;
-    width: 0;
-    height: 1px;
-    background-color: var(--color-accent);
-    transition: width 0.4s ease;
-  }
-
-  .hover-underline:hover::after {
     width: 100%;
-  }
-
-  /* Image Hover */
-  .hover-zoom {
-    overflow: hidden;
-  }
-
-  .hover-zoom img {
-    transition: transform var(--transition-slow);
-  }
-
-  .hover-zoom:hover img {
-    transform: scale(1.05);
-  }
-
-  /* Opacity Hover */
-  .hover-opacity {
-    transition: opacity var(--transition-base);
-  }
-
-  .hover-opacity:hover {
-    opacity: 0.7;
-  }
-
-  /* Spacing Utilities */
-  .section-spacing {
-    padding-top: var(--spacing-section);
-    padding-bottom: var(--spacing-section);
-  }
-
-  .container-padding {
-    padding-left: var(--spacing-xl);
-    padding-right: var(--spacing-xl);
-  }
-
-  /* Divider */
-  .divider {
-    width: 60px;
     height: 1px;
-    background-color: var(--color-accent);
-    margin: var(--spacing-md) 0;
+    background-color: var(--violet-lavender);
+    transform: scaleX(0);
+    transition: transform 0.3s var(--ease-elegant);
   }
 
-  .divider-center {
-    width: 60px;
-    height: 1px;
-    background-color: var(--color-accent);
-    margin: var(--spacing-md) auto;
+  .btn-text:hover::after {
+    transform: scaleX(1);
   }
 
-  /* Simple Fade Animation */
-  .fade-in {
-    animation: fadeIn 0.8s ease forwards;
+  .btn-text:hover {
+    color: var(--violet-deep);
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Button Style */
-  .btn-minimal {
-    display: inline-block;
-    padding: 10px 24px;
-    border: 1px solid var(--color-black);
-    color: var(--color-black);
-    font-family: var(--font-sans);
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transition: all var(--transition-base);
-  }
-
-  @media (min-width: 640px) {
-    .btn-minimal {
-      padding: 12px 32px;
-    }
-  }
-
-  .btn-minimal:hover {
-    background-color: var(--color-black);
-    color: var(--color-white);
-  }
-
-  .btn-accent {
-    display: inline-block;
-    padding: 12px 32px;
-    border: 1px solid var(--color-accent);
-    color: var(--color-accent);
-    font-family: var(--font-sans);
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transition: all var(--transition-base);
-  }
-
-  .btn-accent:hover {
-    background-color: var(--color-accent);
-    color: var(--color-white);
-  }
-
-  /* Container */
+  /* Container with breathing room */
   .container-editorial {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding-left: var(--spacing-xl);
-    padding-right: var(--spacing-xl);
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  @media (min-width: 768px) {
+    .container-editorial {
+      padding-left: var(--space-lg);
+      padding-right: var(--space-lg);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-editorial {
+      padding-left: var(--space-xl);
+      padding-right: var(--space-xl);
+    }
   }
 }
 
-/* Selection Styling */
+/* ========================================
+   SCROLLBAR - Minimal Violet
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--violet-lavender);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--violet-mid);
+}
+
+/* Selection */
 ::selection {
-  background-color: var(--color-accent);
+  background-color: var(--violet-lavender);
   color: var(--color-white);
+}
+
+/* ========================================
+   RESPONSIVE - Mobile First
+   ======================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --space-xl: 80px;
+    --space-lg: 48px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  p {
+    max-width: 100%;
+    font-size: 15px;
+  }
+
+  .pull-quote {
+    padding-left: 40px;
+  }
+
+  .pull-quote::before {
+    font-size: 80px;
+    top: -10px;
+  }
+
+  .vertical-caption {
+    writing-mode: horizontal-tb;
+    font-size: 10px;
+  }
 }
 
 /* Reduce Motion */
@@ -305,35 +422,13 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  :root {
-    --spacing-section: 80px;
-    --spacing-xl: 32px;
-    --spacing-lg: 32px;
-  }
-
-  body {
-    font-size: 15px;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  .container-editorial {
-    padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
+  .foil-violet {
+    animation: none;
   }
 }
 
-/* ========================================
-   ACCESSIBILITY & INTERACTIONS
-   ======================================== */
-
-/* Screen Reader Only */
+/* Accessibility */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -344,31 +439,4 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
-
-.sr-only:focus,
-.sr-only:active {
-  position: static;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
-}
-
-/* Skip to Main Content Link */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--color-black);
-  color: var(--color-white);
-  padding: 8px 16px;
-  text-decoration: none;
-  z-index: 100;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
 }

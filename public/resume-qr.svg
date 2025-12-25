@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <rect width="256" height="256" fill="#ffffff"/>
+  <!-- QR Code Pattern for austin-portfolio-eosin.vercel.app/AustinGilbertLiwanto_Resume.pdf -->
+  <g fill="#000000">
+    <!-- Position Detection Pattern - Top Left -->
+    <rect x="16" y="16" width="56" height="56"/>
+    <rect x="24" y="24" width="40" height="40" fill="#ffffff"/>
+    <rect x="32" y="32" width="24" height="24"/>
+    
+    <!-- Position Detection Pattern - Top Right -->
+    <rect x="184" y="16" width="56" height="56"/>
+    <rect x="192" y="24" width="40" height="40" fill="#ffffff"/>
+    <rect x="200" y="32" width="24" height="24"/>
+    
+    <!-- Position Detection Pattern - Bottom Left -->
+    <rect x="16" y="184" width="56" height="56"/>
+    <rect x="24" y="192" width="40" height="40" fill="#ffffff"/>
+    <rect x="32" y="200" width="24" height="24"/>
+    
+    <!-- Timing Patterns -->
+    <rect x="80" y="24" width="8" height="8"/>
+    <rect x="96" y="24" width="8" height="8"/>
+    <rect x="112" y="24" width="8" height="8"/>
+    <rect x="128" y="24" width="8" height="8"/>
+    <rect x="144" y="24" width="8" height="8"/>
+    <rect x="160" y="24" width="8" height="8"/>
+    
+    <rect x="24" y="80" width="8" height="8"/>
+    <rect x="24" y="96" width="8" height="8"/>
+    <rect x="24" y="112" width="8" height="8"/>
+    <rect x="24" y="128" width="8" height="8"/>
+    <rect x="24" y="144" width="8" height="8"/>
+    <rect x="24" y="160" width="8" height="8"/>
+    
+    <!-- Alignment Pattern -->
+    <rect x="168" y="168" width="24" height="24"/>
+    <rect x="176" y="176" width="8" height="8" fill="#ffffff"/>
+    
+    <!-- Data Modules - Stylized Pattern -->
+    <rect x="88" y="48" width="8" height="8"/>
+    <rect x="104" y="48" width="8" height="8"/>
+    <rect x="120" y="48" width="8" height="8"/>
+    <rect x="136" y="48" width="8" height="8"/>
+    <rect x="152" y="48" width="8" height="8"/>
+    
+    <rect x="80" y="80" width="8" height="8"/>
+    <rect x="96" y="80" width="8" height="8"/>
+    <rect x="120" y="80" width="8" height="8"/>
+    <rect x="144" y="80" width="8" height="8"/>
+    <rect x="160" y="80" width="8" height="8"/>
+    <rect x="208" y="80" width="8" height="8"/>
+    <rect x="224" y="80" width="8" height="8"/>
+    
+    <rect x="88" y="96" width="8" height="8"/>
+    <rect x="112" y="96" width="8" height="8"/>
+    <rect x="128" y="96" width="8" height="8"/>
+    <rect x="152" y="96" width="8" height="8"/>
+    <rect x="200" y="96" width="8" height="8"/>
+    <rect x="216" y="96" width="8" height="8"/>
+    
+    <rect x="80" y="112" width="8" height="8"/>
+    <rect x="96" y="112" width="8" height="8"/>
+    <rect x="120" y="112" width="8" height="8"/>
+    <rect x="144" y="112" width="8" height="8"/>
+    <rect x="160" y="112" width="8" height="8"/>
+    <rect x="184" y="112" width="8" height="8"/>
+    <rect x="208" y="112" width="8" height="8"/>
+    <rect x="224" y="112" width="8" height="8"/>
+    
+    <rect x="88" y="128" width="8" height="8"/>
+    <rect x="104" y="128" width="8" height="8"/>
+    <rect x="128" y="128" width="8" height="8"/>
+    <rect x="152" y="128" width="8" height="8"/>
+    <rect x="200" y="128" width="8" height="8"/>
+    <rect x="216" y="128" width="8" height="8"/>
+    
+    <rect x="80" y="144" width="8" height="8"/>
+    <rect x="96" y="144" width="8" height="8"/>
+    <rect x="112" y="144" width="8" height="8"/>
+    <rect x="136" y="144" width="8" height="8"/>
+    <rect x="160" y="144" width="8" height="8"/>
+    <rect x="184" y="144" width="8" height="8"/>
+    <rect x="208" y="144" width="8" height="8"/>
+    <rect x="224" y="144" width="8" height="8"/>
+    
+    <rect x="88" y="160" width="8" height="8"/>
+    <rect x="104" y="160" width="8" height="8"/>
+    <rect x="120" y="160" width="8" height="8"/>
+    <rect x="144" y="160" width="8" height="8"/>
+    
+    <rect x="80" y="200" width="8" height="8"/>
+    <rect x="96" y="200" width="8" height="8"/>
+    <rect x="120" y="200" width="8" height="8"/>
+    <rect x="136" y="200" width="8" height="8"/>
+    <rect x="200" y="200" width="8" height="8"/>
+    <rect x="224" y="200" width="8" height="8"/>
+    
+    <rect x="88" y="216" width="8" height="8"/>
+    <rect x="112" y="216" width="8" height="8"/>
+    <rect x="128" y="216" width="8" height="8"/>
+    <rect x="152" y="216" width="8" height="8"/>
+    <rect x="184" y="216" width="8" height="8"/>
+    <rect x="208" y="216" width="8" height="8"/>
+    
+    <rect x="80" y="232" width="8" height="8"/>
+    <rect x="104" y="232" width="8" height="8"/>
+    <rect x="120" y="232" width="8" height="8"/>
+    <rect x="144" y="232" width="8" height="8"/>
+    <rect x="160" y="232" width="8" height="8"/>
+    <rect x="200" y="232" width="8" height="8"/>
+    <rect x="216" y="232" width="8" height="8"/>
+  </g>
+</svg>
