@@ -1,6 +1,6 @@
 /* ========================================
-   HIGH-FASHION VIOLET MAGAZINE
-   Design System - "Only purple ink delivered"
+   VOGUE-INSPIRED PORTFOLIO
+   Design System - Deep Purple Elegance
    ======================================== */
 
 /* Import Editorial Fonts */
@@ -12,38 +12,36 @@
 
 @layer base {
 
-  /* Violet Magazine Palette */
+  /* Vogue Color Palette */
   :root {
-    /* Purple Family - The Only Colors */
-    --violet-deep: #5B2C86;
-    --violet-mid: #8B5FBF;
-    --violet-lavender: #C7A2FF;
-    --violet-subtle: rgba(91, 44, 134, 0.15);
-    --violet-overlay: rgba(139, 95, 191, 0.15);
-
-    /* Neutrals for Typography */
+    /* Deep Purple - The Hero Colors */
+    --vogue-deep: #1a0a2e;
+    --vogue-purple: #2d1b46;
+    --vogue-muted: #4a3563;
+    
+    /* Cream / Off-White Accents */
+    --vogue-cream: #f5f5f0;
+    --vogue-warm: #faf9f7;
+    
+    /* Typography Colors */
     --color-white: #FFFFFF;
-    --color-black: #000000;
-    --color-gray: #666666;
+    --color-black: #0a0a0a;
+    --color-gray: #6b6b6b;
 
     /* Typography */
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-sans: 'Inter', -apple-system, sans-serif;
 
-    /* Editorial Spacing - More Generous White Space */
+    /* Generous Spacing */
     --space-xs: 12px;
     --space-sm: 24px;
     --space-md: 48px;
     --space-lg: 80px;
     --space-xl: 140px;
-    --space-2xl: 220px;
 
     /* Transitions */
     --ease-elegant: cubic-bezier(0.4, 0, 0.2, 1);
-    --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --transition-fast: 0.2s;
     --transition-medium: 0.4s;
-    --transition-slow: 0.8s;
   }
 
   /* Base Styles */
@@ -53,75 +51,61 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: var(--color-white);
-    color: var(--color-black);
+    background-color: var(--vogue-deep);
+    color: var(--color-white);
     font-size: 16px;
-    line-height: 2.0;
-    font-weight: 400;
+    line-height: 1.8;
+    font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Headline Typography - Playfair Display */
-  h1,
-  h2,
-  h3 {
+  /* Headline Typography */
+  h1, h2, h3 {
     font-family: var(--font-serif);
-    font-weight: 500;
-    color: var(--violet-deep);
+    font-weight: 400;
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.0;
   }
 
   h1 {
-    font-size: clamp(42px, 8vw, 100px);
+    font-size: clamp(48px, 12vw, 140px);
   }
 
   h2 {
-    font-size: clamp(32px, 5vw, 60px);
+    font-size: clamp(36px, 8vw, 80px);
   }
 
   h3 {
-    font-size: clamp(22px, 2.5vw, 32px);
+    font-size: clamp(24px, 4vw, 40px);
   }
 
-  /* Body Copy - Inter, black only */
   p {
     font-family: var(--font-sans);
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.9;
-    color: var(--color-black);
-    max-width: 38ch;
-    /* Narrow column for elegance */
     font-weight: 300;
+    max-width: 48ch;
   }
 
-  /* Links - Invisible until hover */
   a {
     color: inherit;
     text-decoration: none;
-    position: relative;
-    transition: color 0.4s var(--ease-elegant);
+    transition: opacity 0.3s var(--ease-elegant);
   }
 
   a:hover {
-    color: var(--violet-deep);
+    opacity: 0.7;
   }
 
-  /* Focus States */
   *:focus-visible {
-    outline: 1px solid var(--violet-lavender);
+    outline: 1px solid var(--vogue-cream);
     outline-offset: 4px;
   }
 }
 
-/* ========================================
-   EDITORIAL UTILITY CLASSES
-   ======================================== */
-
 @layer utilities {
 
-  /* Typography Classes */
   .font-serif {
     font-family: var(--font-serif);
   }
@@ -130,208 +114,31 @@
     font-family: var(--font-sans);
   }
 
-  /* Violet Colors */
-  .text-violet {
-    color: var(--violet-deep);
+  /* Vogue Colors */
+  .bg-vogue-deep {
+    background-color: var(--vogue-deep);
   }
 
-  .text-violet-mid {
-    color: var(--violet-mid);
+  .bg-vogue-purple {
+    background-color: var(--vogue-purple);
   }
 
-  .text-violet-lavender {
-    color: var(--violet-lavender);
+  .bg-vogue-cream {
+    background-color: var(--vogue-cream);
   }
 
-  .bg-violet {
-    background-color: var(--violet-deep);
+  .text-vogue-cream {
+    background-color: var(--vogue-cream);
   }
 
-  .bg-violet-mid {
-    background-color: var(--violet-mid);
-  }
-
-  /* Violet Gradient Overlay - 15% opacity for images */
-  .violet-overlay {
-    position: relative;
-  }
-
-  .violet-overlay::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg,
-        rgba(91, 44, 134, 0.2) 0%,
-        rgba(139, 95, 191, 0.15) 50%,
-        rgba(199, 162, 255, 0.1) 100%);
-    pointer-events: none;
-  }
-
-  /* Foil-Stamped Text Effect */
-  .foil-violet {
-    background: linear-gradient(135deg,
-        var(--violet-deep) 0%,
-        var(--violet-lavender) 50%,
-        var(--violet-deep) 100%);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: foilShimmer 8s ease-in-out infinite;
-  }
-
-  @keyframes foilShimmer {
-
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  /* Pull Quote - Oversized quotation marks */
-  .pull-quote {
-    font-family: var(--font-serif);
-    font-size: clamp(24px, 4vw, 48px);
-    font-style: italic;
-    font-weight: 400;
-    color: var(--violet-mid);
-    position: relative;
-    padding-left: 60px;
-    line-height: 1.4;
-  }
-
-  .pull-quote::before {
-    content: '"';
-    position: absolute;
-    left: 0;
-    top: -20px;
-    font-size: 120px;
-    color: var(--violet-lavender);
-    font-family: var(--font-serif);
-    line-height: 1;
-    opacity: 0.6;
-  }
-
-  /* Vertical Caption Style */
-  .vertical-caption {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    font-family: var(--font-sans);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-gray);
-  }
-
-  /* Invisible Navigation Link - Shows underline on hover */
-  .nav-link {
-    position: relative;
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--color-black);
-    transition: color 0.3s var(--ease-elegant);
-  }
-
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--violet-lavender);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.4s var(--ease-elegant);
-  }
-
-  .nav-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
-  .nav-link:hover {
-    color: var(--violet-deep);
-  }
-
-  /* Full Bleed Image Container */
-  .full-bleed {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-  }
-
-  /* Generous Whitespace Sections */
+  /* Section Breathing */
   .section-breathing {
     padding-top: var(--space-xl);
     padding-bottom: var(--space-xl);
   }
 
-  /* Magazine Spread Layout */
-  .spread-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    min-height: 100vh;
-  }
-
-  @media (min-width: 1024px) {
-    .spread-container {
-      grid-template-columns: 60% 40%;
-    }
-  }
-
-  /* Caption Alignment - Bottom Right */
-  .caption-br {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    text-align: right;
-  }
-
-  /* Minimal Button - Text only with underline on hover */
-  .btn-text {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--color-black);
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    position: relative;
-  }
-
-  .btn-text::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--violet-lavender);
-    transform: scaleX(0);
-    transition: transform 0.3s var(--ease-elegant);
-  }
-
-  .btn-text:hover::after {
-    transform: scaleX(1);
-  }
-
-  .btn-text:hover {
-    color: var(--violet-deep);
-  }
-
-  /* Container with breathing room */
-  .container-editorial {
+  /* Container */
+  .container-vogue {
     max-width: 1400px;
     margin: 0 auto;
     padding-left: var(--space-md);
@@ -339,52 +146,38 @@
   }
 
   @media (min-width: 768px) {
-    .container-editorial {
+    .container-vogue {
       padding-left: var(--space-lg);
       padding-right: var(--space-lg);
     }
   }
-
-  @media (min-width: 1280px) {
-    .container-editorial {
-      padding-left: var(--space-xl);
-      padding-right: var(--space-xl);
-    }
-  }
 }
 
-/* ========================================
-   SCROLLBAR - Minimal Violet
-   ======================================== */
-
+/* Scrollbar - Minimal */
 ::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-white);
+  background: var(--vogue-deep);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--violet-lavender);
+  background: var(--vogue-muted);
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--violet-mid);
+  background: var(--vogue-cream);
 }
 
 /* Selection */
 ::selection {
-  background-color: var(--violet-lavender);
-  color: var(--color-white);
+  background-color: var(--vogue-cream);
+  color: var(--vogue-deep);
 }
 
-/* ========================================
-   RESPONSIVE - Mobile First
-   ======================================== */
-
+/* Responsive */
 @media (max-width: 768px) {
   :root {
     --space-xl: 80px;
@@ -397,38 +190,16 @@
 
   p {
     max-width: 100%;
-    font-size: 15px;
-  }
-
-  .pull-quote {
-    padding-left: 40px;
-  }
-
-  .pull-quote::before {
-    font-size: 80px;
-    top: -10px;
-  }
-
-  .vertical-caption {
-    writing-mode: horizontal-tb;
-    font-size: 10px;
   }
 }
 
 /* Reduce Motion */
 @media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-
-  .foil-violet {
-    animation: none;
   }
 }
 
