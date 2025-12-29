@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from 'next/font/google';
 import Navbar from "./components/Navbar";
 import "./globals.css";
+import Providers from "./components/Providers";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -66,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Structured Data */}
         <script
@@ -88,10 +89,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}>
-        <Navbar />
-        <main id="main-content">
-          {children}
-        </main>
+        <Providers>
+          <Navbar />
+          <main id="main-content">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   );

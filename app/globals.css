@@ -40,6 +40,10 @@
 
     /* Transitions */
     --ease-elegant: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: 0.2s;
+    --transition-medium: 0.4s;
+    --transition-slow: 0.8s;
   }
 
   /* Base Styles */
@@ -52,7 +56,7 @@
     background-color: var(--color-white);
     color: var(--color-black);
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 2.0;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -70,15 +74,15 @@
   }
 
   h1 {
-    font-size: clamp(48px, 10vw, 140px);
+    font-size: clamp(42px, 8vw, 100px);
   }
 
   h2 {
-    font-size: clamp(36px, 6vw, 72px);
+    font-size: clamp(32px, 5vw, 60px);
   }
 
   h3 {
-    font-size: clamp(24px, 3vw, 36px);
+    font-size: clamp(22px, 2.5vw, 32px);
   }
 
   /* Body Copy - Inter, black only */

@@ -55,13 +55,13 @@ export default function Navbar(): JSX.Element {
 
     return (
         <>
-            {/* Top Navbar - Enhanced with centered links */}
+            {/* Top Navbar */}
             <motion.header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-5'}`}
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || activeSection !== 'hero' ? 'py-3' : 'py-5'}`}
                 style={{
-                    backgroundColor: isScrolled ? 'rgba(91, 44, 134, 0.98)' : 'transparent',
-                    backdropFilter: isScrolled ? 'blur(12px)' : 'none',
-                    boxShadow: isScrolled ? '0 4px 30px rgba(91, 44, 134, 0.3)' : 'none'
+                    backgroundColor: isScrolled || activeSection !== 'hero' ? 'rgba(91, 44, 134, 0.95)' : 'transparent',
+                    backdropFilter: isScrolled || activeSection !== 'hero' ? 'blur(12px)' : 'none',
+                    boxShadow: isScrolled || activeSection !== 'hero' ? '0 4px 30px rgba(91, 44, 134, 0.2)' : 'none'
                 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ export default function Navbar(): JSX.Element {
                 <div className="max-w-7xl mx-auto px-6 md:px-12">
                     <div className="flex items-center justify-between">
 
-                        {/* Left - Logo with animation */}
+                        {/* Logo with hover effect */}
                         <motion.button
                             onClick={() => scrollToSection('hero')}
                             className="group relative font-serif text-2xl font-bold text-white"
@@ -86,21 +86,20 @@ export default function Navbar(): JSX.Element {
                             />
                         </motion.button>
 
-                        {/* Center - Nav Links (pill style, centered) */}
+                        {/* Center - Nav Links (pill style) */}
                         <nav className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2">
-                            <div className="flex items-center gap-1 bg-white/5 rounded-full px-2 py-1 backdrop-blur-sm border border-white/10">
+                            <div className="flex items-center gap-1 bg-white/5 rounded-full px-2 py-1.5 backdrop-blur-sm border border-white/10">
                                 {navItems.map((item) => (
                                     <motion.button
                                         key={item.id}
                                         onClick={() => scrollToSection(item.id)}
-                                        className={`relative px-4 py-2 rounded-full text-sm tracking-[0.05em] font-medium transition-all ${activeSection === item.id
-                                                ? 'text-[#5B2C86]'
-                                                : 'text-white/80 hover:text-white'
+                                        className={`relative px-4 py-2 rounded-full text-sm tracking-wide font-medium transition-all ${activeSection === item.id
+                                            ? 'text-[#5B2C86]'
+                                            : 'text-white/80 hover:text-white'
                                             }`}
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                     >
-                                        {/* Active background */}
                                         {activeSection === item.id && (
                                             <motion.span
                                                 className="absolute inset-0 bg-white rounded-full -z-10"
@@ -123,7 +122,7 @@ export default function Navbar(): JSX.Element {
                         <motion.a
                             href="/AustinGilbertLiwanto_Resume.pdf"
                             download
-                            className="hidden md:flex items-center gap-2 text-xs tracking-[0.1em] uppercase font-medium px-5 py-2.5 bg-white text-[#5B2C86] rounded-full overflow-hidden group relative"
+                            className="hidden md:flex items-center gap-2 text-xs tracking-[0.1em] uppercase font-semibold px-6 py-3 bg-white text-[#5B2C86] rounded-full overflow-hidden group relative"
                             whileHover={{ scale: 1.05, y: -2 }}
                             whileTap={{ scale: 0.98 }}
                         >
@@ -173,7 +172,7 @@ export default function Navbar(): JSX.Element {
                 />
             </motion.header>
 
-            {/* Mobile Menu - Enhanced */}
+            {/* Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -194,14 +193,12 @@ export default function Navbar(): JSX.Element {
                             exit={{ scale: 1.1 }}
                         />
 
-                        {/* Decorative elements */}
-                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                            <div className="absolute top-1/4 -right-20 w-64 h-64 rounded-full bg-[#C7A2FF]/10 blur-3xl" />
-                            <div className="absolute bottom-1/4 -left-20 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
-                        </div>
-
                         {/* Border */}
                         <div className="absolute inset-4 border border-white/20 pointer-events-none rounded-2xl" />
+
+                        {/* Corner accents */}
+                        <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-[#C7A2FF]/60 rounded-tl-2xl" />
+                        <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-[#C7A2FF]/60 rounded-br-2xl" />
 
                         <div className="relative h-full flex flex-col items-center justify-center gap-6">
                             {navItems.map((item, index) => (
@@ -217,9 +214,9 @@ export default function Navbar(): JSX.Element {
                                     <span className={`text-sm font-mono ${activeSection === item.id ? 'text-[#C7A2FF]' : 'text-white/40'}`}>
                                         {item.num}
                                     </span>
-                                    <span className={`font-serif text-4xl transition-all ${activeSection === item.id
-                                            ? 'text-[#C7A2FF] translate-x-2'
-                                            : 'text-white group-hover:text-[#C7A2FF] group-hover:translate-x-2'
+                                    <span className={`font-serif text-4xl transition-all duration-300 ${activeSection === item.id
+                                        ? 'text-[#C7A2FF] translate-x-2'
+                                        : 'text-white group-hover:text-[#C7A2FF] group-hover:translate-x-2'
                                         }`}>
                                         {item.label}
                                     </span>
@@ -236,7 +233,7 @@ export default function Navbar(): JSX.Element {
                             <motion.a
                                 href="/AustinGilbertLiwanto_Resume.pdf"
                                 download
-                                className="mt-8 px-8 py-4 bg-white text-[#5B2C86] text-sm tracking-widest uppercase font-medium rounded-full flex items-center gap-3 group"
+                                className="mt-8 px-8 py-4 bg-white text-[#5B2C86] text-sm tracking-widest uppercase font-semibold rounded-full flex items-center gap-3 group"
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.4, delay: 0.4 }}
@@ -256,7 +253,7 @@ export default function Navbar(): JSX.Element {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.5 }}
                             >
-                                Portfolio 2025
+                                ✦ Portfolio 2025 ✦
                             </motion.p>
                         </div>
                     </motion.div>
