@@ -3,6 +3,8 @@ import { Space_Grotesk, Inter } from 'next/font/google';
 import Navbar from "./components/Navbar";
 import "./globals.css";
 import Providers from "./components/Providers";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -102,6 +104,8 @@ export default function RootLayout({
             {children}
           </main>
         </Providers>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

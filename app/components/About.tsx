@@ -108,7 +108,7 @@ export default function About(): JSX.Element {
                             </blockquote>
 
                             {/* Body */}
-                            <p className="text-[#1a0a2e]/60 leading-[1.9] text-[15px]">
+                            <p className="text-[#1a0a2e]/70 leading-[1.9] text-[15px]">
                                 I build websites and apps using React, Next.js, and Laravel. Most of my work
                                 involves making things that are easy to use and nice to look at. I also do
                                 UI/UX design on the side basically, if it involves making stuff for the web and solving problems, I'm into it.

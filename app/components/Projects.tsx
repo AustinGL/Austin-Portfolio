@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 
 const projects = [
     {
@@ -13,6 +13,7 @@ const projects = [
         description: "A web platform showcasing mentoring program schedules with advanced search and filter tools.",
         techStack: ["React.js", "Tailwind CSS", "Node.js", "MySQL"],
         link: "https://mentoring.umn.ac.id/#/",
+        github: "",
         image: "/projects/MentoringUMN.avif"
     },
     {
@@ -23,6 +24,7 @@ const projects = [
         description: "Showcasing Bali's destinations with detailed attraction info and travel experiences.",
         techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
         link: "https://melali-in-bali.vercel.app/",
+        github: "",
         image: "/projects/Melali.avif"
     },
     {
@@ -33,6 +35,7 @@ const projects = [
         description: "Event management with client and admin interfaces for browsing and ticketing.",
         techStack: ["Laravel", "PHP", "MySQL", "Bootstrap"],
         link: "https://moreno.xo.je/?i=1",
+        github: "",
         image: "/projects/Evenlix.avif"
     },
     {
@@ -43,6 +46,7 @@ const projects = [
         description: "Mobile app motivating users to recycle food waste into reward points.",
         techStack: ["Figma", "Prototyping", "UI/UX", "Mobile Design"],
         link: "https://www.figma.com/proto/rgtHJHgombG6W97CAwf0XL/Co-Waste?node-id=611-2985",
+        github: "",
         image: "/projects/Co-Waste.avif"
     }
 ];
@@ -164,23 +168,42 @@ export default function Projects(): JSX.Element {
                                 ))}
                             </motion.div>
 
-                            {/* Link */}
-                            <motion.a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-3 group text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-4"
+                            {/* Links */}
+                            <motion.div
+                                className="flex items-center gap-6"
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 transition={{ duration: 0.6, delay: 0.6 }}
                                 viewport={{ once: true }}
                             >
-                                <span className="relative text-xs tracking-[0.2em] uppercase">
-                                    View Project
-                                    <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                                </span>
-                                <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                            </motion.a>
+                                <a
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-3 group text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-4"
+                                >
+                                    <span className="relative text-xs tracking-[0.2em] uppercase">
+                                        View Project
+                                        <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                                    </span>
+                                    <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                                </a>
+
+                                {project.github && (
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-3 group text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-4"
+                                    >
+                                        <span className="relative text-xs tracking-[0.2em] uppercase">
+                                            Source
+                                            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                                        </span>
+                                        <Github className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-all" />
+                                    </a>
+                                )}
+                            </motion.div>
                         </div>
                     </div>
                 </motion.article>
