@@ -11,7 +11,7 @@ const projects = [
         category: "Web Platform",
         year: "2024",
         description: "A web platform showcasing mentoring program schedules with advanced search and filter tools.",
-        techStack: ["React.js", "Tailwind CSS", "Node.js", "MySQL"],
+        techStack: ["React.js", "TypeScript", "Vite", "Tailwind CSS"],
         link: "https://mentoring.umn.ac.id/#/",
         github: "",
         image: "/projects/MentoringUMN.avif"
@@ -22,7 +22,7 @@ const projects = [
         category: "Tourism Web",
         year: "2024",
         description: "Showcasing Bali's destinations with detailed attraction info and travel experiences.",
-        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+        techStack: ["React.js", "Tailwind CSS"],
         link: "https://melali-in-bali.vercel.app/",
         github: "",
         image: "/projects/Melali.avif"
@@ -33,7 +33,7 @@ const projects = [
         category: "Event Platform",
         year: "2023",
         description: "Event management with client and admin interfaces for browsing and ticketing.",
-        techStack: ["Laravel", "PHP", "MySQL", "Bootstrap"],
+        techStack: ["PHP", "MySQL"],
         link: "https://moreno.xo.je/?i=1",
         github: "",
         image: "/projects/Evenlix.avif"
@@ -44,7 +44,7 @@ const projects = [
         category: "UI/UX Design",
         year: "2023",
         description: "Mobile app motivating users to recycle food waste into reward points.",
-        techStack: ["Figma", "Prototyping", "UI/UX", "Mobile Design"],
+        techStack: ["Figma"],
         link: "https://www.figma.com/proto/rgtHJHgombG6W97CAwf0XL/Co-Waste?node-id=611-2985",
         github: "",
         image: "/projects/Co-Waste.avif"
