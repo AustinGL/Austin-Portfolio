@@ -144,7 +144,7 @@ export default function Contact(): JSX.Element {
                             © {new Date().getFullYear()} Austin Gilbert Liwanto
                         </p>
                         <p className="text-white/30 text-[10px] tracking-[0.2em] uppercase">
-                            Made with ☕
+                            give it a try :D
                         </p>
                     </div>
                 </div>
