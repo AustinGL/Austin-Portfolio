@@ -64,7 +64,8 @@ export default function Hero(): JSX.Element {
                 {/* Mobile Resume Link */}
                 <motion.a
                     href="/AustinGilbertLiwanto_Resume.pdf"
-                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-block md:hidden mt-8 text-sm tracking-[0.15em] uppercase text-white/60 hover:text-white transition-colors border-b border-white/40 pb-1 hover:border-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-4"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

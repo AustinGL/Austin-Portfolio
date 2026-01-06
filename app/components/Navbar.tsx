@@ -118,10 +118,11 @@ export default function Navbar(): JSX.Element {
                         {/* Resume Button */}
                         <a
                             href="/AustinGilbertLiwanto_Resume.pdf"
-                            download
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="hidden md:block text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white transition-colors border-b border-white/20 pb-1 hover:border-white/50"
                         >
-                            Resume
+                            View Resume
                         </a>
 
                         {/* Mobile Menu Button */}
@@ -184,13 +185,14 @@ export default function Navbar(): JSX.Element {
 
                             <motion.a
                                 href="/AustinGilbertLiwanto_Resume.pdf"
-                                download
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="mt-8 text-xs tracking-[0.2em] uppercase text-white/50 border-b border-white/20 pb-1"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.4 }}
                             >
-                                Download Resume
+                                View Resume
                             </motion.a>
                         </div>
                     </motion.div>
