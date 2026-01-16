@@ -22,7 +22,7 @@ export default function Hero(): JSX.Element {
 
                 {/* Subtle pre-title */}
                 <motion.p
-                    className="text-white/30 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-8 md:mb-12"
+                    className="text-white/50 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-8 md:mb-12"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 0.3 }}
@@ -66,6 +66,7 @@ export default function Hero(): JSX.Element {
                     href="/AustinGilbertLiwanto_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Download Austin Gilbert Liwanto's Resume (opens in new tab)"
                     className="inline-block md:hidden mt-8 text-sm tracking-[0.15em] uppercase text-white/60 hover:text-white transition-colors border-b border-white/40 pb-1 hover:border-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-4"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

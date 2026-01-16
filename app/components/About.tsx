@@ -29,7 +29,7 @@ export default function About(): JSX.Element {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
             >
-                <span className="text-[#1a0a2e]/30 text-[10px] tracking-[0.2em] uppercase">02 / 04</span>
+                <span className="text-[#1a0a2e]/50 text-[10px] tracking-[0.2em] uppercase">02 / 04</span>
             </motion.div>
 
             {/* Main Content */}
@@ -70,7 +70,7 @@ export default function About(): JSX.Element {
                                 transition={{ duration: 0.6, delay: 0.3 }}
                                 viewport={{ once: true }}
                             >
-                                <p className="text-[#1a0a2e]/50 text-[10px] tracking-[0.2em] uppercase">
+                                <p className="text-[#1a0a2e]/60 text-[10px] tracking-[0.2em] uppercase">
                                     Based in Indonesia • 20 Years Old
                                 </p>
                                 <p className="text-[#1a0a2e]/70 text-xs mt-1">
@@ -89,7 +89,7 @@ export default function About(): JSX.Element {
                         >
                             {/* Section Label */}
                             <div>
-                                <p className="text-[#1a0a2e]/50 text-[10px] tracking-[0.3em] uppercase mb-4">
+                                <p className="text-[#1a0a2e]/60 text-[10px] tracking-[0.3em] uppercase mb-4">
                                     About
                                 </p>
                                 <h2
@@ -116,7 +116,7 @@ export default function About(): JSX.Element {
 
                             {/* Skills */}
                             <div>
-                                <p className="text-[#1a0a2e]/50 text-[10px] tracking-[0.3em] uppercase mb-6">
+                                <p className="text-[#1a0a2e]/60 text-[10px] tracking-[0.3em] uppercase mb-6">
                                     Toolkit
                                 </p>
                                 <div className="flex flex-wrap gap-3">

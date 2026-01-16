@@ -48,7 +48,7 @@ export default function Contact(): JSX.Element {
                 <div className="relative z-10 text-center">
                     {/* Page indicator */}
                     <motion.p
-                        className="text-white/30 text-[10px] tracking-[0.4em] uppercase mb-8"
+                        className="text-white/50 text-[10px] tracking-[0.4em] uppercase mb-8"
                         {...fadeIn}
                     >
                         04 / 04
@@ -118,7 +118,7 @@ export default function Contact(): JSX.Element {
             >
                 <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
                     <div className="text-center md:text-left">
-                        <p className="text-white/30 text-[10px] tracking-[0.3em] uppercase mb-2">Resume</p>
+                        <p className="text-white/50 text-[10px] tracking-[0.3em] uppercase mb-2">Resume</p>
                         <p className="text-white/70 text-base md:text-lg font-light">
                             Want to know more about me?
                         </p>
@@ -127,6 +127,7 @@ export default function Contact(): JSX.Element {
                         href="/AustinGilbertLiwanto_Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="View Austin Gilbert Liwanto's Resume (opens in new tab)"
                         className={`group relative flex items-center gap-3 text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white border border-white/20 hover:border-white/50 px-10 py-4 overflow-hidden ${hoverTransition}`}
                     >
                         <span className={`absolute inset-0 bg-white/0 group-hover:bg-white/5 ${hoverTransition}`} />
@@ -140,10 +141,10 @@ export default function Contact(): JSX.Element {
             <div className="py-12 border-t border-white/5">
                 <div className="max-w-6xl mx-auto px-6 md:px-12">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-                        <p className="text-white/30 text-[10px] tracking-[0.2em] uppercase">
+                        <p className="text-white/50 text-[10px] tracking-[0.2em] uppercase">
                             © {new Date().getFullYear()} Austin Gilbert Liwanto
                         </p>
-                        <p className="text-white/30 text-[10px] tracking-[0.2em] uppercase">
+                        <p className="text-white/50 text-[10px] tracking-[0.2em] uppercase">
                             give it a try :D
                         </p>
                     </div>

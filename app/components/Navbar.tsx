@@ -1,11 +1,13 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar(): JSX.Element {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
+    const mobileMenuRef = useRef<HTMLDivElement>(null);
+    const menuButtonRef = useRef<HTMLButtonElement>(null);
 
     const navItems = [
         { id: 'hero', label: 'Home', num: '01' },
@@ -77,6 +79,48 @@ export default function Navbar(): JSX.Element {
         return () => { document.body.style.overflow = ''; };
     }, [isOpen]);
 
+    // Focus trap for mobile menu
+    useEffect(() => {
+        if (!isOpen || !mobileMenuRef.current) return;
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setIsOpen(false);
+                menuButtonRef.current?.focus();
+                return;
+            }
+
+            if (e.key !== 'Tab') return;
+
+            const focusableElements = mobileMenuRef.current?.querySelectorAll(
+                'button, a, [tabindex]:not([tabindex="-1"])'
+            ) as NodeListOf<HTMLElement>;
+
+            if (!focusableElements || focusableElements.length === 0) return;
+
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            if (e.shiftKey && document.activeElement === firstElement) {
+                e.preventDefault();
+                lastElement.focus();
+            } else if (!e.shiftKey && document.activeElement === lastElement) {
+                e.preventDefault();
+                firstElement.focus();
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+
+        // Focus first item when menu opens
+        const firstFocusable = mobileMenuRef.current.querySelector(
+            'button, a'
+        ) as HTMLElement;
+        firstFocusable?.focus();
+
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [isOpen]);
+
     return (
         <>
             {/* Minimal Navbar */}
@@ -106,10 +150,11 @@ export default function Navbar(): JSX.Element {
                                 <button
                                     key={item.id}
                                     onClick={() => scrollToSection(item.id)}
+                                    aria-current={activeSection === item.id ? 'page' : undefined}
                                     className={`group flex items-center gap-2 text-xs tracking-[0.2em] uppercase transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50 focus-visible:outline-offset-4 ${activeSection === item.id ? 'text-white' : 'text-white/50 hover:text-white'
                                         }`}
                                 >
-                                    <span className="text-[10px] text-white/30">{item.num}</span>
+                                    <span className="text-[10px] text-white/50">{item.num}</span>
                                     <span>{item.label}</span>
                                 </button>
                             ))}
@@ -120,6 +165,7 @@ export default function Navbar(): JSX.Element {
                             href="/AustinGilbertLiwanto_Resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="View Austin Gilbert Liwanto's Resume (opens in new tab)"
                             className="hidden md:block text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white transition-colors border-b border-white/20 pb-1 hover:border-white/50"
                         >
                             View Resume
@@ -127,7 +173,9 @@ export default function Navbar(): JSX.Element {
 
                         {/* Mobile Menu Button */}
                         <button
+                            ref={menuButtonRef}
                             onClick={() => setIsOpen(!isOpen)}
+                            aria-expanded={isOpen}
                             className="md:hidden relative w-8 h-8 flex items-center justify-center"
                             aria-label={isOpen ? "Close menu" : "Open menu"}
                         >
@@ -157,6 +205,10 @@ export default function Navbar(): JSX.Element {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
+                        ref={mobileMenuRef}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="Navigation menu"
                         className="fixed inset-0 z-40 md:hidden"
                         style={{ backgroundColor: '#1a0a2e' }}
                         initial={{ opacity: 0 }}
@@ -187,7 +239,8 @@ export default function Navbar(): JSX.Element {
                                 href="/AustinGilbertLiwanto_Resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="mt-8 text-xs tracking-[0.2em] uppercase text-white/50 border-b border-white/20 pb-1"
+                                aria-label="View Austin Gilbert Liwanto's Resume (opens in new tab)"
+                                className="mt-8 text-xs tracking-[0.2em] uppercase text-white/60 border-b border-white/20 pb-1"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.4 }}
